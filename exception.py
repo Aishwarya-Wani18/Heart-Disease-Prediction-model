@@ -1,5 +1,5 @@
 import sys
-import logging
+from logger import logging
 '''
 sys module provides various function and variable which used to manipulate different parts of the Python runtime environment.
 It allows operating on the interpreter as it provides access to the variables and functions that interact strongly with the interpreter.
@@ -24,3 +24,9 @@ class CustomeException(Exception):
         return self.error_msg
     
 
+if __name__ == "__main__":
+    try:
+        a = 1/0
+    except Exception as e:
+        logging.info("Divide by zero.")
+        raise CustomeException(e,sys)
